@@ -40,78 +40,78 @@ var cur_item_index := -1
 
 
 func _init():
-    # grid scroll container
-    var scroll := ScrollContainer.new()
-    scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-    add_child(scroll)
-    # grid container
-    inventory_grid.columns = 2
-    inventory_grid.set_anchors_preset(PRESET_FULL_RECT)
-    inventory_grid.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_SHRINK_CENTER
-    scroll.add_child(inventory_grid)
+	# grid scroll container
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	add_child(scroll)
+	# grid container
+	inventory_grid.columns = 2
+	inventory_grid.set_anchors_preset(PRESET_FULL_RECT)
+	inventory_grid.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_SHRINK_CENTER
+	scroll.add_child(inventory_grid)
 
 ## Use it to add item, add_item(ITEM_AXE) add_item(ITEM_BOOTS) and it will return the item index, you can then use remove_item(index)
 func add_item(item: Item) -> int:
-    var item_button = ItemButton.new(item)
-    inventory_grid.add_child(item_button)
-    item_button.item_pressed.connect(_on_item_pressed)
-    return item_button.get_index()
+	var item_button = ItemButton.new(item)
+	inventory_grid.add_child(item_button)
+	item_button.item_pressed.connect(_on_item_pressed)
+	return item_button.get_index()
 
 
 ## Use it to remove item by it's index
 ## TODO: update the InventoryPanel
 func remove_item(index: int):
-    var _item = inventory_grid.get_child(index)
-    inventory_grid.remove_child(_item)
-    _item.queue_free()
+	var _item = inventory_grid.get_child(index)
+	inventory_grid.remove_child(_item)
+	_item.queue_free()
 
 
 ## Returns an Item by it's index
 func get_item(index: int) -> Item:
-    return inventory_grid.get_child(index).item
+	return inventory_grid.get_child(index).item
 
 
 ## Returns an array of all items, useful for save and load
 func get_items() -> Array:
-    var items_arr := []
-    for child in inventory_grid.get_children():
-        items_arr.push_back(child.item)
-    return items_arr
+	var items_arr := []
+	for child in inventory_grid.get_children():
+		items_arr.push_back(child.item)
+	return items_arr
 
 
 ## Add items to the grid, useful for load
 func add_items(items_arr: Array):
-    for item in items_arr:
-        add_item(item)
+	for item in items_arr:
+		add_item(item)
 
 
 ## Clear all inventory items.
 ## TODO: update the InventoryPanel
 func remove_all_items():
-    for child in inventory_grid.get_children():
-        inventory_grid.remove_child(child)
-        child.queue_free()
+	for child in inventory_grid.get_children():
+		inventory_grid.remove_child(child)
+		child.queue_free()
 
 
 # This will update the cur_item and the cur_item_index, use it to get/remove item by it's index
 # TODO: add InventoryPanel class and update it when an item is pressed or removed.
 func _on_item_pressed(item: Item):
-    cur_item = item
-    cur_item_index = item.get_index()
+	cur_item = item
+	cur_item_index = item.get_index()
 
 """
 # Usage: uncomment this to use for testing then comment it back after you finish
 func _ready():
-    add_item(ITEM_AXE)
-    add_item(ITEM_BOOTS)
-    add_item(ITEM_BOW)
-    add_item(ITEM_DRAGON_EYE)
-    add_item(ITEM_HELMET)
-    add_item(ITEM_HOLY_HELMET)
-    add_item(ITEM_HOLY_SHIELD)
-    add_item(ITEM_PLUME)
-    add_item(ITEM_SCALE)
-    add_item(ITEM_SHIELD)
-    add_item(ITEM_SWORD)
-    add_item(ITEM_TORCH)
+	add_item(ITEM_AXE)
+	add_item(ITEM_BOOTS)
+	add_item(ITEM_BOW)
+	add_item(ITEM_DRAGON_EYE)
+	add_item(ITEM_HELMET)
+	add_item(ITEM_HOLY_HELMET)
+	add_item(ITEM_HOLY_SHIELD)
+	add_item(ITEM_PLUME)
+	add_item(ITEM_SCALE)
+	add_item(ITEM_SHIELD)
+	add_item(ITEM_SWORD)
+	add_item(ITEM_TORCH)
 """

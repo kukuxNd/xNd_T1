@@ -19,3 +19,11 @@ func _on_Menu_button_focus_exited():
 func _on_Menu_button_focus_entered():
 	#set("custom_colors/font_color_hover", focus_color)
 	pass
+
+
+func quick_start() -> void:
+	pass # Replace with function body.
+
+
+func _on_pressed() -> void:
+	pass # Replace with function body.

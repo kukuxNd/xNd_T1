@@ -1,7 +1,7 @@
 extends Node
 
 # WorldState global class
-
+@onready var game = get_tree().get_current_scene()
 # This class is an Autoload accessible globaly
 # Access the autoload list in godot settings
 
@@ -47,4 +47,11 @@ func clear_state():
 	_state = {}
 
 
-
+func quick_start():
+	game.map_manager.current_map = "my_01_map"
+	WorldState.set_state("player_team", "blue")
+	WorldState.set_state("enemy_team", "red")
+	WorldState.set_state("player_leaders_names", ["arthur", "bokuden", "nagato"])
+	WorldState.set_state("enemy_leaders_names", ["lorne", "robin", "rollo"])
+	WorldState.set_state("game_mode", "match")
+	game.start()

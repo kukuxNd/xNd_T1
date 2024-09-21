@@ -134,5 +134,3 @@ func physics_process(delta):
 		# save last positions
 		unit1.last_position2 = unit1.last_position
 		unit1.last_position = unit1.global_position
-
-

@@ -1,0 +1,8 @@
+unit_test_character: 1啊
+join 男一 center [z_index="1"]
+男一: 。。。
+unit_test_character: 你要干嘛
+- 去下一站？
+	do WorldState.quick_start()
+- 再聊聊？
+	jump 

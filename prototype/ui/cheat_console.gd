@@ -7,4 +7,3 @@ func _gui_input(event):
 			get_tree().get_current_scene().apply_cheat_code(code)
 			text = ""
 			release_focus()
-

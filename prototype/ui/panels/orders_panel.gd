@@ -504,4 +504,3 @@ func hide_all():
 		leader_orders[leader].node.hide()
 	for lane in lane_orders:
 		lane_orders[lane].node.hide()
-

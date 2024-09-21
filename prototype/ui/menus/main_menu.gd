@@ -15,6 +15,12 @@ func _input(event):
 		quick_start_button.grab_focus()
 		once = false
 
+func my_game():
+	print("myGame...")
+	hide()
+	game.start2()
+	#game.exit()
+	
 
 func quick_start():
 	hide()

@@ -34,6 +34,9 @@ func _ready():
 	if test.debug: test.start()
 	else: ui.show_main_menu()
 
+func start2():
+	print("game start 2 ")
+	Dialogic.start('timeline_t1')
 
 func start():
 	WorldState.set_state("all_units", [])
@@ -217,4 +220,3 @@ func apply_cheat_code(code):
 			end(true)
 		"LOSE":
 			end(false)
-

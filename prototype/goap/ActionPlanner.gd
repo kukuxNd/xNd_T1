@@ -154,4 +154,3 @@ func _print_plan(plan):
 	for a in plan.actions:
 		actions.push_back(a.get_class_name())
 	print("action_planner: ", {"cost": plan.cost, "actions": actions})
-

@@ -10,6 +10,6 @@ extends Item
 
 # the type is manualy set here on initialize, don't change this.
 func _init():
-    item_type = ITEM_TYPE.CONSUMABLE
-    # keep this here to validate every new item on initialize
-    validate_item()
+	item_type = ITEM_TYPE.CONSUMABLE
+	# keep this here to validate every new item on initialize
+	validate_item()
